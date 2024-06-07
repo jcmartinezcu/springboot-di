@@ -8,13 +8,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.jc.springboot.di.app.springbootdi.models.Product;
-import com.jc.springboot.di.app.springbootdi.services.ProductService;
+import com.jc.springboot.di.app.springbootdi.services.ProductServiceImpl;
 
 @RestController
 @RequestMapping("/api")
 public class SomeController {
 
-    private ProductService service = new ProductService();
+    private ProductServiceImpl service = new ProductServiceImpl();
 
     @GetMapping
     public List<Product> list(){
@@ -26,7 +26,7 @@ public class SomeController {
     @GetMapping("/{id}")
     public Product show(@PathVariable Long id){
 
-        return service.findById(id);
+        return service.findById(id);    
     }
 
 }
